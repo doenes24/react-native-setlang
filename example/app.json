@@ -1,0 +1,22 @@
+{
+  "name": "react-native-setlang-example",
+  "displayName": "Setlang Example",
+  "expo": {
+    "name": "react-native-setlang-example",
+    "slug": "react-native-setlang-example",
+    "description": "Example app for react-native-setlang",
+    "privacy": "public",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
