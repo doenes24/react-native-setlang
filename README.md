@@ -1,27 +1,32 @@
-# react-native-setlang
+# How to install
+`yarn add react-native-setlang`  
+or  
+`npm i react-native-setlang` 
+# How it works
+So simply.
+###### translate.ts
+```typescript
+import setLang from 'react-native-setlang';
 
-set multiple langs
+const en = {
+  "welcome": "Hello world",
+};
+const fr = {
+  "welcome": "Bonjour le monde",
+};
 
-## Installation
-
-```sh
-npm install react-native-setlang
+export default new setLang({fr,en});
 ```
+###### App.tsx
+```typescript
+import userLang from './translate';
 
-## Usage
+const welcomeText = userLang.t("welcome");
 
-```js
-import Setlang from "react-native-setlang";
-
-// ...
-
-const result = await Setlang.multiply(3, 7);
+console.log(welcomeText);
+// 'Hello world' or 'Bonjour le monde'
 ```
-
-## Contributing
-
-See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
-
-## License
-
-MIT
+## If user has no preference languages ?
+No problem :), if user has not language preference, SetLang will chooses the english version of your Objects. If you do not have an english version, it will choose the first one of your Object you setted in `new setLang({fr,en})`.
+## If user has those preference: "en", "fr". And I just have a translation for "es" ?
+No choice, SetLang will uses es version.
