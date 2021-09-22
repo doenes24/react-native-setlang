@@ -31,7 +31,6 @@ export default class setLang {
 
     let lang = RNLocalize.getLocales();
     let sysLangTab: string[] = [];
-    sysLangTab.push('fr');
 
     for (let i = 0; i < lang.length; i++) {
       sysLangTab.push(lang[i].languageCode);
