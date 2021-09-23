@@ -13,7 +13,7 @@ const userLang = new setLang({fr,en});\
 const welcomeText = userLang.t("welcome");
  */
 export default class setLang {
-  t: (e: string) => string;
+  t: (e: string) => any;
 
   constructor(
     langFoo: { [key: string]: Object },
@@ -26,7 +26,10 @@ export default class setLang {
       length++;
       avLang.push(i);
     }
-    if (!length) console.error('Why are u using the package userLang ???');
+    if (!length)
+      console.error(
+        'Why are u using the package setLang ???\n(You did not set any language version!)'
+      );
     if (!langFoo.hasOwnProperty('en') && !ignoreEnglishVersion)
       console.error('English version is needed');
 
