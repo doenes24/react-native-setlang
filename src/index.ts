@@ -17,7 +17,8 @@ export default class setLang {
 
   constructor(
     langFoo: { [key: string]: Object },
-    ignoreEnglishVersion: boolean = false
+    ignoreEnglishVersion: boolean = false,
+    showErrorIfClefNotFound: boolean = true
   ) {
     let length = 0;
     const avLang: string[] = [];
@@ -47,7 +48,13 @@ export default class setLang {
     if (!theLang && length) theLang = langFoo[avLang[0]];
 
     this.t = (e: string) => {
-      return theLang[e] ?? '';
+      return (
+        theLang[e] ??
+        (showErrorIfClefNotFound
+          ? console.error(`The "${e}" clef was not found`)
+          : '',
+        '')
+      );
     };
   }
 }
